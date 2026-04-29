@@ -1,0 +1,142 @@
+/* ProductGrid Styles */
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pg-card {
+  cursor: pointer;
+  position: relative;
+}
+
+.pg-image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #f5f5f5;
+  aspect-ratio: 3/4;
+  margin-bottom: 0.75rem;
+}
+
+.pg-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pg-card:hover .pg-image-wrap img {
+  transform: scale(1.06);
+}
+
+.pg-wishlist {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transition: transform 0.2s;
+  z-index: 2;
+}
+
+.pg-wishlist:hover {
+  transform: scale(1.1);
+}
+
+.pg-add-cart {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.pg-card:hover .pg-add-cart {
+  transform: translateY(0);
+}
+
+.pg-info {
+  text-align: left;
+}
+
+.pg-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e63946;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.pg-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.pg-price {
+  font-size: 0.9rem;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pg-old {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .pg-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .pg-image-wrap {
+    aspect-ratio: 4/5; /* Slightly taller for mobile */
+  }
+
+  .pg-name {
+    font-size: 0.8rem;
+  }
+  
+  .pg-price {
+    font-size: 0.85rem;
+  }
+
+  .pg-add-cart {
+    display: none; /* Usually better to click through to modal on mobile */
+  }
+}
